@@ -29,6 +29,17 @@ services:
     # Add "forwardPorts": ["3306"] to **devcontainer.json** to forward MariaDB locally.
     # (Adding the "ports" property to this file will not forward from a Codespace.)
 
+  adminer:
+    build:
+      context: .
+      dockerfile: Dockerfile.adminer
+      args:
+        WORKERS: 4
+    environment:
+      ADMINER_DEFAULT_SERVE: db
+      ADMINER_DESIGN: hydra
+      WORKERS: 4
+    network_mode: service:app
 
   mailhog: # 1025 - SMTP, 8025 - HTTP
     image: mailhog/mailhog
