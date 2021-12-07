@@ -57,7 +57,7 @@
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	"forwardPorts": [8000, 3306, 1025, 8025],
+	"forwardPorts": [8000, 3306, 1025, 8025, 8081],
 
 	"postCreateCommand":
 		"/wait-for-it.sh 127.0.0.1:3306 -t 0 -s -- wp core install --path=/home/vscode/wp --url=localhost:8000 --title='WP DEV' --admin_user=admin --admin_password=password --admin_email=test@example.com --skip-email && wp plugin install --path=/home/vscode/wp --activate gutenberg theme-check query-monitor",
